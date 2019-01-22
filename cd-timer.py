@@ -22,11 +22,10 @@ for t in range(theTime, -1, -1):
         curses.curs_set(1)
         sys.exit()
         if minutes == 0 and seconds == 0:
-            break
+            print("Timed out.")
+            for x in range(3):
+                subprocess.call(['/usr/bin/canberra-gtk-play', '--id', 'system-ready'])
 
 curses.curs_set(1)
 
-print("Timed out.\r")
 
-for x in range(3):
-    subprocess.call(['/usr/bin/canberra-gtk-play', '--id', 'system-ready'])
