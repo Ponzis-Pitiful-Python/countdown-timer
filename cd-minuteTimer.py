@@ -6,13 +6,14 @@ import subprocess
 import curses
 import sys
 
-print("Coundown timer, input time in seconds.\nExample: 900 seconds = 15 min.")
+print("Coundown timer, input time in minutes.")
 
 theTime = int(input("Input coundown time: "))
+minTime = theTime * 60
 stdscr = curses.initscr()
 curses.curs_set(0)
 
-for t in range(theTime, -1, -1):
+for t in range(minTime, -1, -1):
     try:
         minutes = t / 60
         seconds = t % 60
